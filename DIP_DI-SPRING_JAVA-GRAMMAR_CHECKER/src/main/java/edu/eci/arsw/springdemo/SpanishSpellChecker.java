@@ -6,7 +6,10 @@ import org.springframework.stereotype.Component;
 import java.util.LinkedHashMap;
 import java.util.Map;
 @Component
-@Qualifier("spanishChecker")
+@Qualifier("spaCheck")
+
+
+
 public class SpanishSpellChecker implements SpellChecker {
 
 	@Override
