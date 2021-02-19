@@ -12,6 +12,8 @@ import edu.eci.arsw.blueprints.persistence.BlueprintPersistenceException;
 import edu.eci.arsw.blueprints.persistence.impl.InMemoryBlueprintPersistence;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import edu.eci.arsw.blueprints.services.BlueprintsServices;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -68,6 +70,7 @@ public class InMemoryPersistenceTest {
                 
         
     }
+
 
 
     

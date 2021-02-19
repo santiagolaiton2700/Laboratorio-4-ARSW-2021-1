@@ -7,12 +7,13 @@ package edu.eci.arsw.blueprints.persistence;
 
 import edu.eci.arsw.blueprints.model.Blueprint;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author hcadavid
  */
 public interface BlueprintsPersistence {
-    
     /**
      * 
      * @param bp the new blueprint
@@ -20,7 +21,6 @@ public interface BlueprintsPersistence {
      *    or any other low-level persistence error occurs.
      */
     public void saveBlueprint(Blueprint bp) throws BlueprintPersistenceException;
-    
     /**
      * 
      * @param author blueprint's author
@@ -29,5 +29,7 @@ public interface BlueprintsPersistence {
      * @throws BlueprintNotFoundException if there is no such blueprint
      */
     public Blueprint getBlueprint(String author,String bprintname) throws BlueprintNotFoundException;
+
+    public ArrayList<Blueprint> getBluePrintsByAuthor(String author)throws BlueprintNotFoundException;
     
 }

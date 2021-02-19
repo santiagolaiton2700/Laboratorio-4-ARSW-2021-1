@@ -13,6 +13,7 @@ import edu.eci.arsw.blueprints.persistence.BlueprintsPersistence;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,7 +22,7 @@ import java.util.Map;
  * @author hcadavid
  */
 @Component
-@Qualifier("inMemoryPersistance")
+@Qualifier("inMemoryBlueprintPersistence")
 
 public class InMemoryBlueprintPersistence implements BlueprintsPersistence{
 
@@ -48,6 +49,16 @@ public class InMemoryBlueprintPersistence implements BlueprintsPersistence{
     @Override
     public Blueprint getBlueprint(String author, String bprintname) throws BlueprintNotFoundException {
         return blueprints.get(new Tuple<>(author, bprintname));
+    }
+    @Override
+    public ArrayList<Blueprint> getBluePrintsByAuthor(String author)throws BlueprintNotFoundException {
+        ArrayList<Blueprint> blueprintsAuthor = new ArrayList<Blueprint>();
+        for (Map.Entry<Tuple<String, String>, Blueprint> bluePrintKey : blueprints.entrySet()){
+            if(bluePrintKey.getKey().o1.equals(author)){
+                blueprintsAuthor.add(bluePrintKey.getValue());
+            }
+        }
+        return blueprintsAuthor;
     }
 
     
